@@ -9,7 +9,7 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 enable_testing()
 
 include_directories(src)
+
 add_subdirectory(src)
 add_subdirectory(test)
-#add_subdirectory(lib)
 

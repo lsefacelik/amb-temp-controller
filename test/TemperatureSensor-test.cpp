@@ -1,22 +1,25 @@
 #include "gtest/gtest.h"
-//#include "TemperatureSensor.h"
+#include "TemperatureSensor.h"
 
-TEST(TemperatureSensorTests, test1) {
+const unsigned int dummy = 0x01234567;
+
+TEST(TemperatureSensorTests, init) {
     
-    GTEST_SUCCEED();
+    TemperatureSensor tmp;
+    EXPECT_EQ(tmp.init(dummy, dummy, dummy), RETURN_OK);
 }
 
-TEST(TemperatureSensorTests, test2) {
+TEST(TemperatureSensorTests, connected) {
     
-    GTEST_SUCCEED();
+    TemperatureSensor tmp;
+    EXPECT_EQ(tmp.testConnection(), RETURN_OK);
 }
 
-TEST(TemperatureSensorTests, test3) {
+TEST(TemperatureSensorTests, convert_celcius) {
     
-    GTEST_SUCCEED();
-}
+    constexpr unsigned char predeterminedVal = 0x34;
 
-TEST(TemperatureSensorTests, test4) {   
+    TemperatureSensor tmp;
     
-    GTEST_FAIL();
+    EXPECT_EQ(predeterminedVal, tmp.convertCelcius(16.04f));
 }
