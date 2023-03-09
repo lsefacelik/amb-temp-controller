@@ -17,6 +17,7 @@ int main(){
 
     /* Init */
     appState = INIT;    
+    initMemPool();
     appInit(status, tempSensor, coolerDev, heaterDev);
     cout << "Init is done." << endl;
     
